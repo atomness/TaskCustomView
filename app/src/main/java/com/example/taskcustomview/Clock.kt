@@ -192,7 +192,24 @@ class Clock : View {
 
     private fun drawCenter(canvas: Canvas) {
         paint?.reset()
+
+
         paint?.let {
+            paint?.let {
+                it.reset()
+                it.color = Color.WHITE
+
+                it.style = Paint.Style.FILL
+                it.isAntiAlias = true
+                canvas.drawCircle(
+                    (clockWidth / 2).toFloat(),
+                    (clockHeight / 2).toFloat(),
+                    (clockRadius + clockPadding - (bareMinimum / 20).toFloat()),
+                    it
+                )
+
+            }
+            it.color = Color.BLACK
             it.style = Paint.Style.FILL
             canvas.drawCircle(
                 (clockWidth / 2).toFloat(),
@@ -240,14 +257,12 @@ class Clock : View {
     //finally
     override fun onDraw(canvas: Canvas) {
         if (!clockInitialized) init()
-        canvas.drawColor(Color.WHITE)
+        canvas.drawColor(Color.argb(0,0,0,0))
         drawCenter(canvas)
         drawCircle(canvas)
-
         drawNumeral(canvas)
         drawDotsCircle(canvas)
         drawHands(canvas)
-
         postInvalidateDelayed(50)
 
     }
