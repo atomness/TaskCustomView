@@ -2,8 +2,7 @@ package com.example.taskcustomview
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.TypedValue
-import android.widget.LinearLayout
+ 
 
 
 class MainActivity : AppCompatActivity() {
